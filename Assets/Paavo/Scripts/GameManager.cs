@@ -44,7 +44,14 @@ namespace Paavo
 		{
 			level++;
 
-			InitGame();
+			if (level == 6) 
+			{
+				EndGame ();
+			} 
+			else 
+			{
+				InitGame ();
+			}
 		}
 
 		void InitGame()	
@@ -62,7 +69,21 @@ namespace Paavo
 			Invoke("HideLevelImage", levelStartDelay);
 
 			boardScript.SetupScene(level);
-			
+		}
+
+		void EndGame()
+		{
+			doingSetup = true;
+
+			levelImage = GameObject.Find("LevelImage");
+
+			levelText = GameObject.Find("LevelText").GetComponent<Text>();
+
+			levelText.text = "Week Over!" +
+							 "\n" + playerFoodPoints + " total freight delivered!" +
+							 "\nYou earned $" + (playerFoodPoints * 2) + "!";
+
+			levelImage.SetActive(true);
 		}
 
 		void HideLevelImage() 
@@ -80,15 +101,6 @@ namespace Paavo
 			}
 
 			StartCoroutine (MoveEnemies ());
-		}
-
-		public void GameOver() 
-		{
-			levelText.text = "You have finished a work week!";
-
-			levelImage.SetActive(true);
-
-			enabled = false;
 		}
 
 		IEnumerator MoveEnemies() 

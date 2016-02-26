@@ -25,7 +25,7 @@ namespace Paavo
 
 		private void OnDisable ()
 		{
-			GameManager.instance.playerFoodPoints = food;
+			GameManager.instance.playerFoodPoints += food;
 		}
 
 		private void Update ()
@@ -55,10 +55,6 @@ namespace Paavo
 		
 		protected override void AttemptMove <T> (int xDir, int yDir)
 		{
-			//food--;
-			
-			//foodText.text = "Food: " + food;
-			
 			base.AttemptMove <T> (xDir, yDir);
 			
 			RaycastHit2D hit;
@@ -68,23 +64,19 @@ namespace Paavo
 				
 			}
 			
-			CheckIfGameOver ();
-			
 			GameManager.instance.playersTurn = false;
 		}
 		
 		protected override void OnCantMove <T> (T component)
 		{
 			Wall hitWall = component as Wall;
-			
-			//hitWall.DamageWall (wallDamage);
 		}
 		
 		private void OnTriggerEnter2D (Collider2D other)
 		{
 			if (other.tag == "Exit")
 			{
-				foodText.text = "Freight delivered!";
+				foodText.text = food + " freight delivered!";
 
 				Invoke ("Restart", restartLevelDelay);
 				
@@ -111,20 +103,6 @@ namespace Paavo
 		private void Restart ()
 		{
 			Application.LoadLevel (Application.loadedLevel);
-		}
-		
-		public void LoseFood (int loss)
-		{
-			food -= loss;
-			
-			foodText.text = "-"+ loss + " Freight: " + food;
-			
-			CheckIfGameOver ();
-		}
-		
-		private void CheckIfGameOver ()
-		{
-			
 		}
 	}
 }
