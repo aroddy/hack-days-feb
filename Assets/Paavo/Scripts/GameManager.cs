@@ -81,7 +81,7 @@ namespace Paavo
 
 			levelText.text = "Week Over!" +
 							 "\n" + playerFoodPoints + " total freight delivered!" +
-							 "\nYou earned $" + (playerFoodPoints * 2) + "!";
+							 "\nYou earned $" + (playerFoodPoints * 5) + "!";
 
 			levelImage.SetActive(true);
 		}
