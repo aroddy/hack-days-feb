@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Paavo 
+namespace Paavo
 {	
 	public class Loader : MonoBehaviour 
 	{
-		public GameObject gameManager;	
-		
-		void Awake () 
+		public GameObject gameManager;			
+		public GameObject soundManager;			
+
+		void Awake ()
 		{
-			if (GameManager.instance == null) 
+			if (GameManager.instance == null)
 			{
 				Instantiate (gameManager);
+			}
+
+			if (SoundManager.instance == null) 
+			{
+				Instantiate (soundManager);
 			}
 		}
 	}

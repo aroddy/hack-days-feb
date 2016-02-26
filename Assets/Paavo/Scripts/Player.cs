@@ -69,7 +69,7 @@ namespace Paavo
 		
 		protected override void OnCantMove <T> (T component)
 		{
-			Wall hitWall = component as Wall;
+			//Wall hitWall = component as Wall;
 		}
 		
 		private void OnTriggerEnter2D (Collider2D other)
