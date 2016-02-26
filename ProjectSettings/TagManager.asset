@@ -7,6 +7,7 @@ TagManager:
   - Exit
   - Soda
   - Food
+  - Damager
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Units
     uniqueID: 2765280085
+    locked: 0
+  - name: Foreground
+    uniqueID: 1558113949
     locked: 0
