@@ -84,6 +84,8 @@ namespace Paavo
 							 "\nYou earned $" + (playerFoodPoints * 5) + "!";
 
 			levelImage.SetActive(true);
+
+			SoundManager.instance.musicSource.Stop();
 		}
 
 		void HideLevelImage() 

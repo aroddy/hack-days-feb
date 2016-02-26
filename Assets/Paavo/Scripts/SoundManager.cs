@@ -6,9 +6,7 @@ namespace Paavo
 	public class SoundManager : MonoBehaviour 
 	{
 		public AudioSource musicSource;                 
-		public static SoundManager instance = null;                  
-		public float lowPitchRange = .95f;             
-		public float highPitchRange = 1.05f;            
+		public static SoundManager instance = null;          
 
 		void Awake ()
 		{
